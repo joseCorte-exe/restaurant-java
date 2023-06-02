@@ -1,8 +1,11 @@
 package app.handlers;
 
+import DB.DB;
 import app.classes.order.Product;
 
 public class HandleMenu {
+    DB DB = new DB();
+
     private StringBuilder message = new StringBuilder();
 
     private StringBuilder MountMenu(Product[] products) {
@@ -14,8 +17,8 @@ public class HandleMenu {
         return this.message;
     }
 
-    public HandleMenu(Product[] products) {
-        MountMenu(products);
+    public HandleMenu() {
+        MountMenu(DB.getProducts());
     }
 
     public void ViewMenu() {

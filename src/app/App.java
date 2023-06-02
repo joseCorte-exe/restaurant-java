@@ -9,13 +9,10 @@ import app.seeders.Seeder;
 import java.util.Scanner;
 
 public class App {
-    private Seeder seeder = new Seeder();
-    private Product[] products = seeder.getProducts();
-
     public App() {
     }
 
-    private HandleMenu menu = new HandleMenu(products);
+    private HandleMenu menu = new HandleMenu();
 
     Client client = new Client(
             "Client 1",
@@ -38,7 +35,7 @@ public class App {
                 menu.ViewMenu();
                 break;
             case 2:
-//                handleMakeOrder();
+                handleMakeOrder();
                 break;
             default:
                 System.out.println("choose a valid option");
