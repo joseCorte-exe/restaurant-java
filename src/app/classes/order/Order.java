@@ -1,4 +1,4 @@
-package app.order;
+package app.classes.order;
 
 import java.util.UUID;
 

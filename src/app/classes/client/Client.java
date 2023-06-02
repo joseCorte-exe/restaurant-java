@@ -1,4 +1,4 @@
-package app.client;
+package app.classes.client;
 
 import java.util.UUID;
 

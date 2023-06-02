@@ -1,6 +1,6 @@
-package app.constants;
+package app.classes.constants;
 
-import app.order.Product;
+import app.classes.order.Product;
 
 public class registeredProducts {
     public Product[] getRegisterdProducts() {

@@ -1,6 +1,6 @@
-package app.client;
+package app.classes.client;
 
-import app.order.Order;
+import app.classes.order.Order;
 
 public class Bill {
     public float amount;
