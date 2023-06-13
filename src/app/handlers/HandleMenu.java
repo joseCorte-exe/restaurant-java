@@ -1,10 +1,10 @@
 package app.handlers;
 
-import DB.DB;
-import app.classes.order.Product;
+import shared.Constants;
+import app.models.order.Product;
 
 public class HandleMenu {
-    DB DB = new DB();
+    Constants Constants = new Constants();
 
     private StringBuilder message = new StringBuilder();
 
@@ -17,11 +17,11 @@ public class HandleMenu {
         return this.message;
     }
 
-    public HandleMenu() {
-        MountMenu(DB.getProducts());
-    }
-
     public void ViewMenu() {
         System.out.println(this.message.toString());
+    }
+
+    public HandleMenu() {
+        MountMenu(this.Constants.getProducts());
     }
 }

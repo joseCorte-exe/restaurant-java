@@ -1,6 +1,6 @@
 package app.seeders;
 
-import app.classes.order.Product;
+import app.models.order.Product;
 
 public class Seeder {
     Product[] products = new Product[4];

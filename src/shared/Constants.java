@@ -1,9 +1,9 @@
-package DB;
+package shared;
 
-import app.classes.order.Product;
+import app.models.order.Product;
 import app.seeders.Seeder;
 
-public class DB {
+public class Constants {
     private Seeder seeder = new Seeder();
 
     public Product[] getProducts() {
