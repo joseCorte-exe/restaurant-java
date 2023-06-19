@@ -11,7 +11,7 @@ public class Client extends Bill {
     private UUID id;
     private String name;
     private Bill bill;
-    private int table = 0;
+    private int table;
 
     public Client(
             String name,
