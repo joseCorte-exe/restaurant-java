@@ -5,8 +5,6 @@ import app.models.order.Order;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
 
 public class OrderService {
     public void addOrder(Order order) throws IOException {

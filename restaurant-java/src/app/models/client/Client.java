@@ -9,7 +9,7 @@ import java.util.UUID;
 public class Client extends Bill {
     private UUID id;
     private String name;
-    private Bill bill;
+    static public Bill bill;
     private int table;
 
     public Client(
@@ -25,10 +25,6 @@ public class Client extends Bill {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Bill getBill() {
@@ -54,5 +50,4 @@ public class Client extends Bill {
     public int getTable() {
         return table;
     }
-
 }

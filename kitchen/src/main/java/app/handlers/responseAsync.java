@@ -10,6 +10,11 @@ public class responseAsync {
     public responseAsync(App app) {
         Runnable r = () -> {
             while (true) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 if (app.orders.size() > 0) {
                     Socket socket = null;
                     try {

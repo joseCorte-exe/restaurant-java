@@ -9,11 +9,14 @@ public class HandleMenu {
     private StringBuilder message = new StringBuilder();
 
     private StringBuilder MountMenu(Product[] products) {
-        this.message.append("~~~~~~~~~~Menu~~~~~~~~~~\n");
+        this.message.append("~~~~~~~~~~~~Menu~~~~~~~~~~~~\n");
+        int i=1;
         for (Product product : products) {
-            this.message.append(" " + product.getName() + ": " + product.getPrice() + "\n");
+            this.message.append("   " + i + "." + " \uD83C\uDF5D " + product.getName() + ": $" + product.getPrice() + "\n");
+            i++;
         }
-        this.message.append("~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        this.message.append("   0. to exit\n");
+        this.message.append("~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         return this.message;
     }
 

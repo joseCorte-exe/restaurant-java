@@ -10,7 +10,7 @@ public class Order extends OrderDTO implements IOrder, Serializable {
     public UUID id;
     private List<Product> products;
     private float amount;
-    private String status;
+    static public String status = "to prepare";
 
     public String getStatus() {
         return status;

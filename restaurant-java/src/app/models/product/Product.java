@@ -6,7 +6,7 @@ import java.util.UUID;
 public class Product implements Serializable {
     private UUID id;
     private String name;
-    private int price;
+    private float price;
 
     public Product(String name, int price) {
         this.name = name;
@@ -21,7 +21,7 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 

@@ -7,13 +7,13 @@ import java.util.List;
 
 public class Bill {
     private float amount;
-    private List<Order> orders = new ArrayList<Order>();
+    private boolean isPaid = false;
+    static public List<Order> orders = new ArrayList<Order>();
     public float getAmount() {
+        amount = orders
+            .stream()
+            .reduce(0, (total, order) -> (int) (total + order.getAmount()), Integer::sum);
         return amount;
-    }
-
-    public void setAmount(float amount) {
-        this.amount = amount;
     }
 
     public List<Order> getOrders() {
@@ -22,5 +22,34 @@ public class Bill {
 
     public void addOrder(Order order) {
         this.orders.add(order);
+    }
+
+    public boolean isPaid() {
+        return isPaid;
+    }
+
+    public void payBill() {
+        isPaid = true;
+        System.out.println(
+                "\n" +
+                " ▄▄▄▄▄▄▄  ▄  ▄ ▄   ▄▄▄ ▄▄  ▄▄▄▄▄▄▄\n" +
+                " █ ▄▄▄ █ █▄▄██ ▄█▄▄█ ▀ ▀█  █ ▄▄▄ █\n" +
+                " █ ███ █ ▄▀▀▀ ▄▀▄▄ ██▀▄▀█▀ █ ███ █\n" +
+                " █▄▄▄▄▄█ █▀▄▀▄ █▀█ ▄▀▄▀▄ █ █▄▄▄▄▄█\n" +
+                " ▄▄ ▄  ▄▄▀▀▄ ▀▄█ █▀▀▀ ███▄ ▄▄▄ ▄▄ \n" +
+                "   ▄ ▀█▄ █▄█▀ █▀ ██▄▄█▄█ ▀ █▄ █  █\n" +
+                " ▀█ ▄▄█▄▄    ▄█▀█▄  █▀█▀▀▀██▄ ▄ ▀█\n" +
+                "  █▄█ █▄██▀▀▀█▀▄ ▄ ▀ ██ ▄▀█▀▄▀█▀█▀\n" +
+                " ▄▀█ █ ▄▄ █▀▄▀▀  ▄█▀▄██ ▄█ ▄ █▀ ▀▄\n" +
+                " ▄▄█▄██▄  ▀█  ▀▀▀▀▄▄   ▀▀ ▀▄▄▄█▀▄▄\n" +
+                " ▀█▄▄█▀▄▄█ ▀█▄▄██ ▀▀▀██ ▀█▄▀█ █ ▄ \n" +
+                " ▄█▄▄█▀▄ ▀█▀██▄█   ▄█▀▀▄ ▀▀█ ▄▄▀ █\n" +
+                " ▄▀▀▀▀▀▄▄▀▀▀█▀▀▄██▄ █▀▀ ██▄█▄██ ▀▀\n" +
+                " ▄▄▄▄▄▄▄ ██ █ █▄  █▄▀▄▀▄▀█ ▄ █  ▄▀\n" +
+                " █ ▄▄▄ █  ▀ ▀▄▄ ▀▀█▀▄▀██ █▄▄▄█▄ ▄▄\n" +
+                " █ ███ █ ▀▄▄▄█▀█ ██  ▄█▀▀█▀▀▀██ ██\n" +
+                " █▄▄▄▄▄█ ██▀ ▀ ▀▄▄▀  ██▄▀█▀█▄▄  ▄ \n"
+        );
+        System.out.println("!cola o qrcode no bloco de notas pra ler");
     }
 }

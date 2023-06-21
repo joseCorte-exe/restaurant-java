@@ -1,20 +1,16 @@
 package app;
 
 import app.handlers.HandleOrder;
-import app.models.client.Bill;
 import app.models.client.Client;
 import app.handlers.HandleMenu;
-import app.models.order.Order;
 import app.models.waiter.Waiter;
 import shared.Constants;
 
 import java.io.IOException;
-import java.net.Socket;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    public App() throws IOException {
+    public App() {
     }
 
     Waiter waiter = new Waiter();
@@ -25,12 +21,13 @@ public class App {
 
     public void viewActions() {
         System.out.println(
-            "----------------------------\n" +
-            "        1. View menu        \n" +
-            "      2. Make an order      \n" +
-            "     3. View client Bill    \n" +
-            "        0. Finalizar        \n" +
-            "##############################"
+            "_______________________________\n" +
+            "|    1. \uD83D\uDC40 View menu          |\n" +
+            "|    2. \uD83C\uDF7D\uFE0F Make an order      |\n" +
+            "|    3. \uD83D\uDDD2\uFE0F View client Bill   |\n" +
+            "|    4. \uD83D\uDDD2\uFE0F Pay the Bill       |\n" +
+            "|    0. ✅ Finalizar          |\n" +
+            "-------------------------------"
         );
     }
 
@@ -54,10 +51,13 @@ public class App {
             }
         }
 
-        viewActions();
-
-        while (option != 0) {
-             option = scan.nextInt();
+        while (option != 0 && option != 4) {
+            viewActions();
+            option = scan.nextInt();
+            if (option == 0 && !client.isPaid()) {
+                System.out.println("please pay the bill before leaving");
+                option = -1;
+            }
             switch(option) {
                 case 1:
                     menu.ViewMenu();
@@ -72,10 +72,14 @@ public class App {
                 case 3:
                     client.getBill();
                     break;
+                case 4:
+                    System.out.println(client.getAmount());
+                    client.payBill();
+                    break;
                 default:
                     System.out.println("choose a valid option");
             }
-            viewActions();
         }
+        menu();
     }
 }
