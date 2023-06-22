@@ -6,7 +6,6 @@ import app.handlers.HandleMenu;
 import app.models.waiter.Waiter;
 import shared.Constants;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
@@ -18,7 +17,6 @@ public class App {
 
     private HandleMenu menu = new HandleMenu();
     private HandleOrder orderHandler = new HandleOrder(waiter);
-
     public void viewActions() {
         System.out.println(
             "_______________________________\n" +

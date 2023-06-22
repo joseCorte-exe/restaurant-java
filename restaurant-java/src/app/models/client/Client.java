@@ -32,21 +32,21 @@ public class Client extends Bill {
         if (orders.isEmpty())
             System.out.println("No orders");
         else {
-            System.out.println("\n|===========Bill===========|\n");
+            System.out.println("\n|===================\uD83D\uDDD2\uFE0FBill\uD83D\uDDD2\uFE0F===================|");
             for (Order order : orders) {
                 List<Product> products = order.getProducts();
-                System.out.println("\n| Order:\n" + order.getId().toString().strip() + " |");
-                System.out.println("\n| status:\n" + order.getStatus() + " |");
-
+                System.out.println("| Order: " + order.getId().toString().strip() + " |");
+                System.out.println("|              status: " + order.getStatus() + "              |");
                 for (int i=0; i < order.getProducts().size(); i++) {
                     Product product = products.get(i);
-                    System.out.println("\n{ Product:" + product.getName() + " | price:" + product.getPrice() + " }");
+                    System.out.println("|       Product: " + product.getName() + " | price:" + product.getPrice() + "        |");
                 }
+                System.out.println("|---------------------------------------------|");
             }
+            System.out.println("|=============================================|\n");
         }
         return bill;
     }
-
     public int getTable() {
         return table;
     }
