@@ -58,7 +58,7 @@ public class App {
             }
             switch(option) {
                 case 1:
-                    menu.ViewMenu();
+                    menu.ViewMenu(false);
                     break;
                 case 2:
                     try {

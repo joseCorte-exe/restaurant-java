@@ -12,9 +12,9 @@ public class Constants {
     static private Seeder seeder = new Seeder();
     static private List<Client> clients = seeder.getClients();
 
-    static public Product[] getProducts() {
-        Product[] products = seeder.getProducts();
-        return  products;
+    static public List<Product> getProducts() {
+        List<Product> products = seeder.getProducts();
+        return products;
     }
     public List<Client> getClients() {
         return this.clients;

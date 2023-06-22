@@ -7,10 +7,12 @@ public class Product implements Serializable {
     private UUID id;
     private String name;
     private float price;
+    private StringBuilder specifications;
 
-    public Product(String name, int price) {
+    public Product(String name, int price, StringBuilder specifications) {
         this.name = name;
         this.price = price;
+        this.specifications = specifications;
     }
 
     public String getName() {
@@ -27,5 +29,9 @@ public class Product implements Serializable {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public StringBuilder getSpecifications() {
+        return specifications;
     }
 }
