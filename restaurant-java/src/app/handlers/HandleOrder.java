@@ -7,6 +7,7 @@ import app.models.product.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class HandleOrder {
@@ -30,7 +31,8 @@ public class HandleOrder {
         System.out.println("Choose a product: (by position or 0 to exit order)");
         System.out.println("you can order only 5 plate per time");
 
-        for (int i=0; option != 0 && i < 5; i++) {
+        int i=0;
+        while (option != 0 && i < 5) {
             menu.ViewMenu(true);
             option = scan.nextInt();
 
@@ -40,11 +42,28 @@ public class HandleOrder {
                 System.out.println(this.Constants.getProducts().get(option-1).getSpecifications());
             }
             // todo: remove train wreck
-            else if (option > 0 && option <= this.Constants.getProducts().size()) products.add(this.Constants.getProducts().get(option-1));
+            else if (option > 0 && option <= this.Constants.getProducts().size()) {
+                products.add(this.Constants.getProducts().get(option - 1));
+                System.out.println("Quantity: ");
+                int quantity;
+                quantity = scan.nextInt();
+                products.get(i).setAmount(quantity);
+                i++;
+            }
         }
-        System.out.println(products.size());
+        System.out.println("plates quantity: " + products.size());
 
-        Order order = new Order(products);
+        System.out.println("Add some preferences? (1 for yes, 0 for no)");
+        String preferences = "";
+        int o = scan.nextInt();
+
+        if (o == 1) {
+            Scanner scanString = new Scanner(System.in);
+            System.out.println("What are your preferences?");
+            preferences = scanString.nextLine();
+        }
+
+        Order order = new Order(products, preferences);
 
         waiter.addOrderToKitchen(order);
 

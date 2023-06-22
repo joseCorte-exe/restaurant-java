@@ -39,8 +39,13 @@ public class Client extends Bill {
                 System.out.println("|              status: " + order.getStatus() + "              |");
                 for (int i=0; i < order.getProducts().size(); i++) {
                     Product product = products.get(i);
-                    System.out.println("|       Product: " + product.getName() + " | price:" + product.getPrice() + "        |");
+                    System.out.println(
+                        "|     " + (product.getAmount() > 1 ? product.getAmount() + "x " : "") +
+                        "Product: " + product.getName() +
+                        " | price:" + (product.getAmount() > 1 ? product.getAmount() * product.getPrice() : product.getPrice()) + "     |"
+                    );
                 }
+                System.out.println("| " + order.getPreferences());
                 System.out.println("|---------------------------------------------|");
             }
             System.out.println("|=============================================|\n");

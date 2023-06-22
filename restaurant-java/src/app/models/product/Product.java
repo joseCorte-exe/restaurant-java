@@ -8,8 +8,10 @@ public class Product implements Serializable {
     private String name;
     private float price;
     private StringBuilder specifications;
+    private int amount;
 
     public Product(String name, int price, StringBuilder specifications) {
+        this.id = UUID.randomUUID();
         this.name = name;
         this.price = price;
         this.specifications = specifications;
@@ -19,19 +21,20 @@ public class Product implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public float getPrice() {
         return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     public StringBuilder getSpecifications() {
         return specifications;
     }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
 }

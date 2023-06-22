@@ -33,6 +33,7 @@ public class HandleMenu {
             int option;
             System.out.println("Which plate would you like to know about?");
             option = scan.nextInt();
+            if (option > 0 && option < this.Constants.getProducts().size())
             System.out.println(option + ". " + this.Constants.getProducts().get(option-1).getSpecifications());
         }
     }

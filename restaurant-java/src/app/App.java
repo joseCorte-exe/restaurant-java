@@ -71,7 +71,7 @@ public class App {
                     client.getBill();
                     break;
                 case 4:
-                    System.out.println(client.getAmount());
+                    System.out.println("\n -- total: " + client.getAmount());
                     client.payBill();
                     break;
                 default:
